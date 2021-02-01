@@ -26,7 +26,7 @@ import lk.ac.mrt.cse.dbs.simpleexpensemanager.data.model.ExpenseType;
  * AccountDAO interface can be used to access the account details, including listing, adding, updating, removing
  * accounts and updating account balance.
  */
-public interface AccountDAO {
+public interface  AccountDAO {
 
     /***
      * Get a list of account numbers.
@@ -56,7 +56,7 @@ public interface AccountDAO {
      *
      * @param account - the account to be added.
      */
-    public void addAccount(Account account);
+    public void addAccount(Account account) throws InvalidAccountException;
 
     /***
      * Remove an account from the accounts collection.
