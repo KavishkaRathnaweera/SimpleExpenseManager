@@ -45,17 +45,17 @@ public class SQliteDatabaseIMPL extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sqDatabase) {
         String TABLE_CREATE_ACCOUNT ="CREATE TABLE " + TABLE_NAME_ACCOUNT+ " ("
                 +COLUMN_ACCOUNT_NO+ " TEXT(50) PRIMARY KEY,"
-                +COLUMN_BANK_NAME+ " TEXT(50),"
-                +COLUMN_ACCOUNT_HOLDER_NAME+ " TEXT(50),"
-                +COLUMN_BALANCE+ " REAL"
+                +COLUMN_BANK_NAME+ " TEXT(50) PRIMARY KEY,"
+                +COLUMN_ACCOUNT_HOLDER_NAME+ " TEXT(50) NOT NULL,"
+                +COLUMN_BALANCE+ " REAL NOT NULL"
                 +" )";
 
         String TABLE_CREATE_TRANSACTION ="CREATE TABLE " + TABLE_NAME_TRANSACTION+
                 " ("
-                +COLUMN_DATE+ " date,"
-                +COLUMN_ACCOUNT_NO+ " TEXT(50)  ,"
-                +COLUMN_EXPENSE_TYPE+ " TEXT(20),"
-                +COLUMN_AMOUNT+ " REAL,FOREIGN KEY ("+COLUMN_ACCOUNT_NO+") REFERENCES "+TABLE_NAME_ACCOUNT+"(" +COLUMN_ACCOUNT_NO+ "))";
+                +COLUMN_DATE+ " date NOT NULL ,"
+                +COLUMN_ACCOUNT_NO+ " TEXT(50) NOT NULL ,"
+                +COLUMN_EXPENSE_TYPE+ " TEXT(20) NOT NULL ,"
+                +COLUMN_AMOUNT+ " REAL NOT NULL ,FOREIGN KEY ("+COLUMN_ACCOUNT_NO+") REFERENCES "+TABLE_NAME_ACCOUNT+"(" +COLUMN_ACCOUNT_NO+ ")  ON UPDATE CASCADE)";
 
         sqDatabase.execSQL(TABLE_CREATE_ACCOUNT);
         sqDatabase.execSQL(TABLE_CREATE_TRANSACTION);
