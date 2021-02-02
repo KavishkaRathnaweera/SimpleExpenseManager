@@ -53,15 +53,15 @@ public class PersistentAccountDAO implements AccountDAO {
         if(acc==null){
             databaseHelper.AddAccount(account);
         }
-        else{
-            if(acc.getBankName()!=account.getBankName()){
-                databaseHelper.AddAccount(account);
-            }
-            else{
-                String msg = "Account " + acc + " is invalid.";
-                throw new InvalidAccountException(msg);
-            }
-        }
+//        else{
+//            if(acc.getBankName()!=account.getBankName()){
+//                databaseHelper.AddAccount(account);
+//            }
+//            else{
+//                String msg = "Account " + acc + " is invalid.";
+//                throw new InvalidAccountException(msg);
+//            }
+//        }
     }
 
     @Override
